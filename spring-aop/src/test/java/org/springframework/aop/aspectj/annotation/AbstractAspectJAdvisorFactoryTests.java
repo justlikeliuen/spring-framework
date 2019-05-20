@@ -1007,6 +1007,11 @@ class MakeLockable {
 	@DeclareParents(value = "org.springframework..*", defaultImpl = DefaultLockable.class)
 	public static Lockable mixin;
 
+	/**
+	 * execution用来对方法前面进行过滤
+	 * this(mixin) 相当于 this(test.aop.Lockable) 指实现了Lockable的类
+	 * this 匹配了任意实现了Lockable接口的代理对象的方法进行过滤
+	 */
 	@Before(value="execution(void set*(*)) && this(mixin)", argNames="mixin")
 	public void checkNotLocked( Lockable mixin) {
 		// Can also obtain the mixin (this) this way
