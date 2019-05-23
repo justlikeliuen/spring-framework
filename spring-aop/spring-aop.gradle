@@ -6,4 +6,5 @@ dependencies {
 	optional("org.aspectj:aspectjweaver:${aspectjVersion}")
 	optional("org.apache.commons:commons-pool2:2.6.0")
 	optional("com.jamonapi:jamon:2.81")
+	compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
 }
